@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>JoyaGoo spreadsheet: guía de tallas, QC y categorías</title>
+<meta name="description" content="Explora JoyaGoo spreadsheet con una guía en español para comparar zapatillas, ropa y accesorios. Revisa tallas, fotos QC y costes antes de decidir.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#382447">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="JoyaGoo spreadsheet · Elegir con criterio">
+<meta property="og:description" content="Categorías de moda y guías breves para comparar medidas, interpretar fotos QC y organizar una compra.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80">
+<meta property="og:image:alt" content="Zapatilla Nike roja sobre un fondo rojo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://images.unsplash.com">
+<style>
+:root {
+  --paper: #faf7f0;
+  --ink: #29232c;
+  --plum: #382447;
+  --muted: #625965;
+  --line: #ddd5df;
+  --lime: #dce8a5;
+  --white: #fff;
+  --radius: 18px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+a { color: inherit; text-underline-offset: 4px; }
+a:focus-visible, summary:focus-visible {
+  outline: 3px solid #6b4f86;
+  outline-offset: 5px;
+}
+a:hover { text-decoration: underline; }
+img { display: block; max-width: 100%; height: auto; }
+.wrap { width: min(1160px, calc(100% - 40px)); margin: auto; }
+header { border-bottom: 1px solid var(--line); }
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  min-height: 84px;
+}
+.brand {
+  text-decoration: none;
+  font-weight: 850;
+  letter-spacing: -1px;
+  font-size: 1.4rem;
+}
+.brand span { color: #775688; }
+.top p { font-size: .8rem; margin: 0; color: var(--muted); }
+.top > a:last-child { font-weight: 700; font-size: .9rem; }
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .73rem;
+  font-weight: 800;
+  color: #6c527d;
+  margin: 0 0 12px;
+}
+h1, h2, h3, p { overflow-wrap: break-word; }
+h1, h2, h3 { line-height: 1.12; letter-spacing: -.04em; }
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5.4rem);
+  margin: 14px 0 22px;
+  font-weight: 850;
+}
+h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); margin: 0 0 18px; }
+h3 { font-size: 1.2rem; margin: 0 0 12px; }
+p { margin: 0 0 18px; }
+.categories { padding: 25px 0 30px; }
+.categories h2 { font-size: 1rem; letter-spacing: 0; margin-bottom: 15px; }
+.cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 9px; }
+.cat-grid a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: .86rem;
+  font-weight: 700;
+  background: #fff9;
+}
+.cat-grid a:hover { background: var(--lime); border-color: #8d9c5e; }
+.cat-grid span {
+  font-size: .7rem;
+  color: #73677b;
+  font-variant-numeric: tabular-nums;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  background: var(--plum);
+  color: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.hero-copy { padding: clamp(26px, 4vw, 52px); }
+.hero .kicker { color: var(--lime); }
+.hero-copy > p:not(.kicker) { color: #e6ddea; max-width: 47ch; }
+.hero figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: #bd2635;
+}
+.hero img {
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  object-fit: cover;
+}
+.hero figcaption {
+  padding: 10px 17px;
+  font-size: .72rem;
+  background: #291d31;
+  color: #eee3f0;
+}
+.button {
+  display: inline-block;
+  padding: 13px 20px;
+  border-radius: 100px;
+  background: var(--lime);
+  color: #29301e;
+  font-weight: 800;
+  text-decoration: none;
+}
+.hero .note { font-size: .77rem; margin-top: 18px; margin-bottom: 0; }
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 36px;
+  padding: 44px 0;
+  border-bottom: 1px solid var(--line);
+}
+.intro strong { font-size: .85rem; }
+.intro p { max-width: 76ch; margin: 0; }
+.section { padding: 55px 0; border-bottom: 1px solid var(--line); }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: end;
+  margin-bottom: 25px;
+}
+.section-head p { max-width: 42ch; color: var(--muted); font-size: .9rem; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.card figure { margin: 0; }
+.card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  background: #e9e5e7;
+}
+.card .contain { object-fit: contain; }
+.card figcaption {
+  font-size: .72rem;
+  padding: 9px 20px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+.card-copy { padding: 23px; }
+.card-copy p { color: var(--muted); font-size: .91rem; }
+.card-copy a { font-size: .88rem; font-weight: 800; }
+.tag {
+  font-size: .69rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #775688;
+  display: block;
+  margin-bottom: 12px;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 23px;
+  padding: 0;
+  list-style: none;
+  counter-reset: steps;
+}
+.steps li {
+  counter-increment: steps;
+  border-top: 2px solid var(--plum);
+  padding-top: 19px;
+}
+.steps li::before {
+  content: "0" counter(steps);
+  display: block;
+  font-size: .8rem;
+  color: #71547f;
+  margin-bottom: 18px;
+}
+.steps p { font-size: .91rem; color: var(--muted); }
+.feature { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; }
+.feature > div:first-child {
+  background: var(--lime);
+  padding: 28px;
+  border-radius: var(--radius);
+  align-self: start;
+}
+.feature p { font-size: .95rem; }
+.table-scroll { overflow: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+caption { text-align: left; font-weight: 750; margin-bottom: 15px; }
+th, td {
+  text-align: left;
+  padding: 14px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th { background: #eee8f0; }
+td:first-child { font-weight: 700; }
+article { padding: 26px 0; border-top: 1px solid var(--line); }
+article:first-of-type { border-top: 0; padding-top: 0; }
+.article-meta {
+  font-size: .73rem;
+  color: #765b81;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+article h3 { font-size: 1.4rem; }
+article p { max-width: 78ch; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+details { border-bottom: 1px solid var(--line); padding: 19px 0; }
+summary { cursor: pointer; font-weight: 750; line-height: 1.4; }
+details p {
+  font-size: .92rem;
+  color: var(--muted);
+  padding-top: 14px;
+  margin: 0;
+}
+.closing {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  background: var(--plum);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 32px;
+  margin: 36px 0;
+}
+.closing h2 { font-size: 1.8rem; }
+.closing p { color: #e6ddea; margin: 0; max-width: 60ch; }
+footer { padding: 15px 0 35px; font-size: .78rem; color: var(--muted); }
+footer p { max-width: 100ch; }
+footer .brand { font-size: 1rem; color: var(--plum); }
+@media (max-width: 900px) {
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 3rem; }
+  .cards { gap: 12px; }
+  .card-copy { padding: 18px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .feature { grid-template-columns: 1fr 1.4fr; gap: 24px; }
+}
+@media (max-width: 640px) {
+  .wrap { width: calc(100% - 28px); }
+  .top { min-height: 74px; }
+  .top p { display: none; }
+  .top > a:last-child { font-size: .8rem; }
+  .cat-grid { grid-template-columns: 1fr 1fr; }
+  .cat-grid a { font-size: .78rem; }
+  .hero, .intro, .feature, .faq-grid { grid-template-columns: 1fr; }
+  .hero img { min-height: 0; height: auto; aspect-ratio: 4/3; }
+  .hero-copy { padding: 28px; }
+  .hero h1 { font-size: 2.8rem; }
+  .intro { gap: 12px; padding: 30px 0; }
+  .section { padding: 36px 0; }
+  .section-head { display: block; }
+  .cards { grid-template-columns: 1fr; }
+  .card img { aspect-ratio: 16/10; }
+  .steps { gap: 18px; }
+  .steps h3 { font-size: 1.05rem; }
+  .closing { display: block; padding: 25px; }
+  .closing .button { margin-top: 23px; }
+  .feature { gap: 24px; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "JoyaGoo spreadsheet: guía de tallas, QC y categorías",
+      "inLanguage": "es",
+      "description": "Guía editorial independiente para comparar zapatillas, ropa y accesorios mediante medidas, fotos QC y una revisión del coste total."
+    },
+    {
+      "@type": "Article",
+      "headline": "Cómo elegir zapatillas sin adivinar la talla",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Organization",
+        "name": "Mesa editorial de esta guía"
+      },
+      "articleBody": "Para comparar zapatillas por talla, mide ambos pies al final del día y utiliza la medida del más largo. Consulta la tabla específica del modelo y pregunta si los centímetros corresponden al pie o a la plantilla. No conviertas una talla EU a US por intuición. En una ficha de zapatillas Nike, comprueba también el ancho, el uso previsto y las condiciones de devolución. Una referencia visual ayuda a reconocer la silueta, pero no acredita autenticidad ni comodidad."
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "es",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es JoyaGoo spreadsheet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es un término de búsqueda para listas de productos y enlaces organizados por categorías, relacionadas con compras mediante JoyaGoo. Esta página ofrece orientación editorial; sus botones llevan a Hipobuyfind y no a un carrito de JoyaGoo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo usar una lista de productos para empezar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Elige una categoría, guarda la referencia exacta y compara medidas, material, variante y coste total. Abre después la ficha de destino para comprobar sus condiciones actuales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Las fotos QC demuestran que un artículo es auténtico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Las fotos QC pueden mostrar el estado visible, las medidas y los detalles de una unidad. No sustituyen la procedencia documentada ni una autenticación especializada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El precio del artículo incluye el envío a España?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No debes darlo por incluido. Revisa por separado producto, transporte, servicios, cambio de divisa y posibles impuestos aplicables al destino antes de pagar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hacer si un enlace deja de funcionar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Comprueba que la dirección esté completa y busca la referencia en la categoría correspondiente. Si encuentras otra ficha, verifica de nuevo vendedor, variante y medidas; no supongas que es el mismo artículo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Esta página pertenece a JoyaGoo o a las marcas mostradas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Es una guía independiente sin afiliación oficial con JoyaGoo, Nike o Gucci. Las imágenes son referencias visuales y no confirman disponibilidad en Hipobuyfind."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- index.html · Documento estático en español. No se declara una URL canónica sin conocer el dominio de publicación. -->
+<!-- Investigación temática: sheetjoyagoo.com, joyagoospreadsheet.com, rep.tools, joyagoospreadsheet.gg, joyagoo.io, joyagoolist.com, ssfinds.com, joyagoo.today, joyagoohaul2026.com y joyagoosheets.com. Se consultaron resultados y páginas accesibles; no se pudo verificar el orden de la primera página de Google. No se adoptan sus cifras, ofertas ni reseñas. -->
+<!-- Núcleos secundarios: JoyaGoo finds; guía JoyaGoo en español; fotos QC JoyaGoo; categorías JoyaGoo. Las consultas específicas se desarrollan en los textos visibles, sin listas ocultas de palabras clave. -->
+<link rel="canonical" href="https://kakobuyfinds.github.io/ysxtk/">
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="brand" href="https://www.hipobuyfind.com" aria-label="Ir a Hipobuyfind">CUADERNO<span> / </span>FINDS</a>
+    <p>Moda · Medidas · Decisiones informadas</p>
+    <a href="https://www.hipobuyfind.com">Explorar Hipobuyfind ↗</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="categories" aria-label="Categorías de Hipobuyfind">
+    <h2>Empieza por lo que buscas</h2>
+    <div class="cat-grid">
+      <a href="https://hipobuyfind.com/category-911-Shoes.html"><span>01</span> Zapatillas · Shoes</a>
+      <a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html"><span>02</span> Sudaderas / Jerséis</a>
+      <a href="https://hipobuyfind.com/category-913-T-Shirts.html"><span>03</span> Camisetas</a>
+      <a href="https://hipobuyfind.com/category-914-Jackets.html"><span>04</span> Chaquetas</a>
+      <a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html"><span>05</span> Pantalones / Shorts</a>
+      <a href="https://hipobuyfind.com/category-916-Headwear.html"><span>06</span> Gorras y sombreros</a>
+      <a href="https://hipobuyfind.com/category-917-Sets.html"><span>07</span> Conjuntos</a>
+      <a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html"><span>08</span> Ropa interior</a>
+      <a href="https://hipobuyfind.com/category-919-Jersey.html"><span>09</span> Camisetas deportivas</a>
+      <a href="https://hipobuyfind.com/category-920-Accessories.html"><span>10</span> Accesorios</a>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="kicker">Guía de descubrimiento / En español</p>
+      <h1 id="hero-title">JoyaGoo spreadsheet.<br>Menos dudas,<br>mejor criterio.</h1>
+      <p>Una lista abre posibilidades. Las medidas, los materiales y las fotos te ayudan a decidir. Aprende a comparar zapatillas, prendas y accesorios antes de preparar tu selección.</p>
+      <a class="button" href="https://www.hipobuyfind.com">Descubrir el catálogo ↗</a>
+      <p class="note">Guía independiente. Los enlaces de navegación llevan a Hipobuyfind; no realizan una compra en JoyaGoo.</p>
+    </div>
+    <figure>
+      <img
+        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
+        alt="Zapatilla Nike roja con suela clara sobre un fondo rojo"
+        width="1000"
+        height="1000"
+        fetchpriority="high"
+        decoding="async">
+      <figcaption>Referencia visual Nike · No es una ficha de venta ni una confirmación de existencias.</figcaption>
+    </figure>
+  </section>
+
+  <section class="intro" aria-label="Respuesta rápida">
+    <strong>QUÉ ENCONTRARÁS AQUÍ</strong>
+    <p><strong>JoyaGoo spreadsheet</strong> es una expresión usada para buscar listas de productos y enlaces agrupados por categoría. Este cuaderno convierte esa intención en una guía práctica: qué revisar, cómo comparar y cuándo pedir más información. No ofrece una hoja descargable ni verifica automáticamente los artículos del catálogo de destino.</p>
+  </section>
+
+  <section class="section" aria-labelledby="visual-title">
+    <div class="section-head">
+      <div>
+        <p class="kicker">01 / Referencias de estilo</p>
+        <h2 id="visual-title">Observa la forma.<br>Comprueba el detalle.</h2>
+      </div>
+      <p>Las imágenes orientan sobre siluetas y combinaciones. La ficha concreta debe confirmar material, medidas y variante.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <figure>
+          <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=640&amp;q=75"
+            alt="Perfil de una zapatilla Nike roja con cordones rojos"
+            width="640"
+            height="480"
+            loading="lazy"
+            decoding="async">
+          <figcaption>Calzado Nike · Imagen de referencia</figcaption>
+        </figure>
+        <div class="card-copy">
+          <span class="tag">Silueta y proporción</span>
+          <h3>Zapatillas que encajan</h3>
+          <p>Al buscar zapatillas Nike por talla, compara largo del pie, ancho y tabla del modelo. Para elegir zapatillas para uso diario, revisa también el peso y el tipo de suela descritos en la ficha.</p>
+          <a href="https://www.hipobuyfind.com">Explorar referencias de calzado ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <figure>
+          <img
+            class="contain"
+            src="https://media.gucci.com/style/DarkGray_Center_0_0_1200x1200/1659595532/681264_3HAGJ_2564_001_100_0000_Light-Casquette-en-toileGG-jumbo.jpg"
+            alt="Gorra Gucci de lona GG jumbo beige con visera marrón"
+            width="1200"
+            height="1200"
+            loading="lazy"
+            decoding="async">
+          <figcaption>Gorra Gucci · Imagen de referencia</figcaption>
+        </figure>
+        <div class="card-copy">
+          <span class="tag">Ajuste y acabado</span>
+          <h3>El accesorio cambia el conjunto</h3>
+          <p>Para comparar gorras por contorno, busca centímetros y sistema de ajuste. En accesorios de lona, observa costuras y composición; un estampado visible no demuestra autenticidad.</p>
+          <a href="https://www.hipobuyfind.com">Explorar referencias de accesorios ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <figure>
+          <img
+            src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&amp;fit=crop&amp;w=640&amp;q=75"
+            alt="Zapatillas Nike claras con detalles de color, fotografiadas de cerca"
+            width="640"
+            height="480"
+            loading="lazy"
+            decoding="async">
+          <figcaption>Zapatillas Nike · Imagen de referencia</figcaption>
+        </figure>
+        <div class="card-copy">
+          <span class="tag">Color y equilibrio</span>
+          <h3>Construye una base sencilla</h3>
+          <p>Para combinar zapatillas claras con ropa, elige primero una paleta breve. Compara el tono en varias fotografías: la iluminación puede cambiar cómo se perciben el blanco, el beige y los detalles de color.</p>
+          <a href="https://www.hipobuyfind.com">Buscar ideas para combinar ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="process-title">
+    <p class="kicker">02 / Guía JoyaGoo en español</p>
+    <h2 id="process-title">De una lista larga a una elección clara</h2>
+    <p>Para ordenar tus <strong>JoyaGoo finds</strong>, conserva la referencia exacta y aplica la misma revisión a cada candidato.</p>
+
+    <ol class="steps">
+      <li>
+        <h3>Define el uso</h3>
+        <p>Empieza con una lista de zapatillas para diario, ropa para entretiempo o accesorios para un conjunto. Una necesidad concreta facilita descartar lo que no encaja.</p>
+      </li>
+      <li>
+        <h3>Compara medidas</h3>
+        <p>Para elegir sudaderas por medidas, contrasta pecho y largo con una prenda propia. En camisetas de corte amplio, revisa además hombros y manga.</p>
+      </li>
+      <li>
+        <h3>Examina evidencias</h3>
+        <p>Al revisar fotos QC JoyaGoo, identifica variante, fecha y unidad cuando estén disponibles. Las imágenes de otros pedidos aportan contexto, pero no describen necesariamente el tuyo.</p>
+      </li>
+      <li>
+        <h3>Revisa el total</h3>
+        <p>Antes de cerrar una selección de ropa y zapatillas, separa artículo, transporte y servicios. Confirma condiciones de devolución y coste final en el destino de compra.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section feature" aria-labelledby="measure-title">
+    <div>
+      <p class="kicker">03 / Tallas sin suposiciones</p>
+      <h2 id="measure-title">Una cinta métrica aporta más que una etiqueta.</h2>
+      <p>Una M no tiene medidas universales. Para comparar tallas de ropa en centímetros, utiliza una prenda que ya te resulte cómoda y mide del mismo modo que la tabla del vendedor.</p>
+      <p><strong>Si falta un dato decisivo, pide la medida antes de elegir.</strong></p>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <caption>Qué comprobar según la categoría</caption>
+        <thead>
+          <tr>
+            <th scope="col">Prenda</th>
+            <th scope="col">Medida útil</th>
+            <th scope="col">Detalle adicional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Zapatillas</td>
+            <td>Largo del pie y ancho</td>
+            <td>Tabla del modelo; no solo conversión EU/US.</td>
+          </tr>
+          <tr>
+            <td>Sudaderas y jerséis</td>
+            <td>Pecho, largo y manga</td>
+            <td>Sudaderas con capucha y jerséis de punto pueden tener caídas distintas.</td>
+          </tr>
+          <tr>
+            <td>Camisetas y chaquetas</td>
+            <td>Hombros y pecho</td>
+            <td>Para elegir chaquetas para llevar por capas, compara con una chaqueta propia usada sobre ropa similar.</td>
+          </tr>
+          <tr>
+            <td>Pantalones y shorts</td>
+            <td>Cintura, tiro y entrepierna</td>
+            <td>Al comparar pantalones cortos por largo, identifica si la tabla mide la prenda extendida.</td>
+          </tr>
+          <tr>
+            <td>Conjuntos y ropa interior</td>
+            <td>Medidas de cada pieza</td>
+            <td>Comprueba composición, elasticidad y condiciones de devolución indicadas.</td>
+          </tr>
+          <tr>
+            <td>Camisetas deportivas</td>
+            <td>Pecho y largo</td>
+            <td>Distingue corte ajustado y holgado antes de elegir una talla.</td>
+          </tr>
+          <tr>
+            <td>Gorras y accesorios</td>
+            <td>Contorno, largo o diámetro</td>
+            <td>Para comparar joyería por dimensiones, pide escala y material especificado.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="articles-title">
+    <div class="section-head">
+      <div>
+        <p class="kicker">04 / Temas para decidir mejor</p>
+        <h2 id="articles-title">Lecturas breves, preguntas concretas</h2>
+      </div>
+      <p>Una guía para comparar tallas, otra para observar fotos y una tercera para ordenar el presupuesto.</p>
+    </div>
+
+    <article aria-labelledby="article-one">
+      <p class="article-meta">Tallas / Calzado</p>
+      <h3 id="article-one">Cómo elegir zapatillas sin adivinar la talla</h3>
+      <p>Para comparar zapatillas por talla, mide ambos pies al final del día y utiliza la medida del más largo. Consulta la tabla específica del modelo y pregunta si los centímetros corresponden al pie o a la plantilla. No conviertas una talla EU a US por intuición.</p>
+      <p>En una ficha de zapatillas Nike, comprueba también el ancho, el uso previsto y las condiciones de devolución. Una referencia visual ayuda a reconocer la silueta, pero no acredita autenticidad ni comodidad.</p>
+    </article>
+
+    <article aria-labelledby="article-two">
+      <p class="article-meta">Observación / Fotos QC</p>
+      <h3 id="article-two">Qué mirar en fotos QC de ropa y accesorios</h3>
+      <p>Para revisar costuras en fotografías, busca tomas nítidas de uniones, bajos y cierres. Al comprobar una camiseta por fotos, compara simetría, posición del estampado y medidas visibles. En una gorra, observa visera, paneles y cierre; en joyería, solicita dimensiones y detalles de uniones.</p>
+      <p>Una guía de fotos QC para principiantes debe distinguir lo visible de lo que falta: una foto no confirma por sí sola composición, resistencia ni procedencia. Si el color cambia entre imágenes, pide una toma con iluminación neutra. Si necesitas verificar autenticidad, busca documentación y evaluación especializada.</p>
+    </article>
+
+    <article aria-labelledby="article-three">
+      <p class="article-meta">Planificación / Coste total</p>
+      <h3 id="article-three">Cómo organizar una compra sin confundir precio y presupuesto</h3>
+      <p>Para calcular el coste total de una selección, anota producto, transporte interior si corresponde, transporte internacional, servicios y cambio de moneda. En una compra con envío a España o a otro país, comprueba también los cargos e impuestos que puedan aplicarse a tu destino.</p>
+      <p>Al comparar envío por peso y volumen, utiliza los datos del paquete y las condiciones de la ruta disponible. No presupongas un plazo de entrega ni un ahorro por agrupar artículos. Guarda referencia, variante, medidas y fecha de consulta: así podrás revisar enlaces de productos que hayan cambiado.</p>
+    </article>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <p class="kicker">05 / Respuestas directas</p>
+    <h2 id="faq-title">Preguntas frecuentes</h2>
+
+    <div class="faq-grid">
+      <details open>
+        <summary>¿Qué es JoyaGoo spreadsheet?</summary>
+        <p>Es un término de búsqueda para listas de productos y enlaces organizados por categorías, relacionadas con compras mediante JoyaGoo. Esta página ofrece orientación editorial; sus botones llevan a Hipobuyfind y no a un carrito de JoyaGoo.</p>
+      </details>
+
+      <details open>
+        <summary>¿Cómo usar una lista de productos para empezar?</summary>
+        <p>Elige una categoría, guarda la referencia exacta y compara medidas, material, variante y coste total. Abre después la ficha de destino para comprobar sus condiciones actuales.</p>
+      </details>
+
+      <details>
+        <summary>¿Las fotos QC demuestran que un artículo es auténtico?</summary>
+        <p>No. Las fotos QC pueden mostrar el estado visible, las medidas y los detalles de una unidad. No sustituyen la procedencia documentada ni una autenticación especializada.</p>
+      </details>
+
+      <details>
+        <summary>¿El precio del artículo incluye el envío a España?</summary>
+        <p>No debes darlo por incluido. Revisa por separado producto, transporte, servicios, cambio de divisa y posibles impuestos aplicables al destino antes de pagar.</p>
+      </details>
+
+      <details>
+        <summary>¿Qué hacer si un enlace deja de funcionar?</summary>
+        <p>Comprueba que la dirección esté completa y busca la referencia en la categoría correspondiente. Si encuentras otra ficha, verifica de nuevo vendedor, variante y medidas; no supongas que es el mismo artículo.</p>
+      </details>
+
+      <details>
+        <summary>¿Esta página pertenece a JoyaGoo o a las marcas mostradas?</summary>
+        <p>No. Es una guía independiente sin afiliación oficial con JoyaGoo, Nike o Gucci. Las imágenes son referencias visuales y no confirman disponibilidad en Hipobuyfind.</p>
+      </details>
+    </div>
+  </section>
+
+  <aside class="closing" aria-label="Continuar explorando">
+    <div>
+      <h2>Elige una categoría. Conserva el criterio.</h2>
+      <p>Usa las medidas y las condiciones de cada ficha para convertir una idea de estilo en una selección razonada.</p>
+    </div>
+    <a class="button" href="https://www.hipobuyfind.com">Visitar Hipobuyfind ↗</a>
+  </aside>
+</main>
+
+<footer class="wrap">
+  <p class="brand">CUADERNO / FINDS</p>
+  <p>Contenido editorial independiente en español. Las marcas identifican las referencias visuales; no implican patrocinio ni relación oficial. No se publican precios, valoraciones ni existencias verificadas. Comprueba la información vigente de cada artículo en el sitio de destino.</p>
+  <p>Fotografías de referencia: Unsplash y archivo de imágenes de Gucci. Esta página no procesa pagos ni recoge datos mediante formularios.</p>
+  <a href="https://www.hipobuyfind.com">Hipobuyfind</a>
+</footer>
+</body>
+</html>
